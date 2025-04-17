@@ -1,9 +1,15 @@
 from flask import Flask, request, jsonify
 import joblib
 import re
+import nltk
 from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
 from flask_cors import CORS
+
+try:
+    nltk.data.find('corpora/stopwords')
+except LookupError:
+    nltk.download('stopwords')
 
 app = Flask(__name__)
 CORS(app, origins=["http://localhost:5173"])
