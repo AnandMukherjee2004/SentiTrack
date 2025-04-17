@@ -27,7 +27,7 @@ df['review'] = df['review'].apply(preprocess)
 df['sentiment'] = df['sentiment'].map({'positive': 1, 'negative': 0})
 
 # Vectorization
-vectorizer = TfidfVectorizer(max_features=5000, ngram_range=(1, 2))
+vectorizer = TfidfVectorizer(max_features=2000, ngram_range=(1, 2))
 X = vectorizer.fit_transform(df['review']).toarray()
 y = df['sentiment']
 
